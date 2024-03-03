@@ -10,3 +10,4 @@ services:
     ports:
       - '10100:8080'
     command: python3 app.py
+    

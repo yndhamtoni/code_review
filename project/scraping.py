@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 import sqlite3
 import flask
-
 def scraper(prod, prices):
     url = 'https://book24.ru/catalog/estestvennye-nauki-1347/'
 
