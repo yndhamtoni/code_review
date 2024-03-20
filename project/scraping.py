@@ -10,21 +10,21 @@ def scraper(prod, prices):
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
 
-    tovar = [a.get_text().strip() for a in soup.find_all('a', {"class" : "product-card__name"})]
-    author = [a.get_text().split() for a in soup.find_all('a', {"class" : "author-list__item smartLink"})]
-    author_new = []
+    products = [a.get_text().strip() for a in soup.find_all('a', {"class" : "product-card__name"})]
+    authors = [a.get_text().split() for a in soup.find_all('a', {"class" : "author-list__item smartLink"})]
+    authors_new = []
 
-    for b in tovar:
-        print(b)
+    for product in products:
+        print(product)
 
-    for c in author:
-        string = ' '.join(c)
-        author_new.append(string)
-    for i in tovar:
-        prod.append(i)
+    for author in authors:
+        string = ' '.join(author)
+        authors_new.append(string)
+    for product in products:
+        prod.append(product)
     
-    for i in author_new:
-        prices.append(i)
+    for author_new in authors_new:
+        prices.append(author_new)
 
 def start(conn, cur):
     prod = []
