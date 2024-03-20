@@ -2,6 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import sqlite3
 import flask
+import os
+
 def scraper(prod, prices):
     url = 'https://book24.ru/catalog/estestvennye-nauki-1347/'
 
@@ -16,14 +18,11 @@ def scraper(prod, prices):
         print(b)
 
     for c in author:
-        string = ''
-        for el in c:
-            string += el
-            string += ' '
+        string = ' '.join(c)
         author_new.append(string)
     for i in tovar:
         prod.append(i)
-    #prices = [price_new[i].replace("\xa0", " ") for i in range(len(price_new))]
+    
     for i in author_new:
         prices.append(i)
 
